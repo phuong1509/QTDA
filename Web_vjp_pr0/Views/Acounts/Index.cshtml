@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Web_vjp_pr0.Models.Acount>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <h1>Danh sách tài khoản</h1>
+        @Html.ActionLink("Đăng Kí", "Register")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaiKhoan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatKhau)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaiKhoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatKhau)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.TaiKhoan }) |
+            @Html.ActionLink("Details", "Details", new { id = item.TaiKhoan }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.TaiKhoan })
+        </td>
+    </tr>
+        }
+
+    </table>
+    <a href="@Url.Action("Logout","Acounts")" class="btn btn-warning">Logout</a>
+</body>
+</html>

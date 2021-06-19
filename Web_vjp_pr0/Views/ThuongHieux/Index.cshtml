@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Web_vjp_pr0.Models.ThuongHieu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thương Hiệu</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã Thương Hiệu
+        </th>
+        <th>
+            Tên Thương Hiệu
+        </th>
+
+        <th>
+            Thao Tác
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaThuongHieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenThuongHieu)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id = item.MaThuongHieu }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaThuongHieu }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.MaThuongHieu })
+        </td>
+    </tr>
+}
+
+</table>

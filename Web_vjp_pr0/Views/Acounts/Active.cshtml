@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Active</title>
+</head>
+<body>
+    <div class="row justify-content-md-start">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Wellcome
+                </div>
+                <div class="card-body">
+                    @if (Session["FullName"] != null)
+                    {
+                        <p>Người Dùng: @Session["tk"].ToString()</p>
+                        <a href="@Url.Action("Logout","Acounts")" class="btn btn-warning">Logout</a>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

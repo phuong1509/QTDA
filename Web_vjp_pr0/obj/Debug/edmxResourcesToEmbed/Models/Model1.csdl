@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLQAoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Acount">
+    <Key>
+      <PropertyRef Name="TaiKhoan" />
+    </Key>
+    <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CTHDNhap">
+    <Key>
+      <PropertyRef Name="MaCTHDNhap" />
+    </Key>
+    <Property Name="MaCTHDNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaHDNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="ThanhTien" Type="Double" />
+    <NavigationProperty Name="HDNhap" Relationship="Self.FK_CTHDNhap_HDNhap" FromRole="CTHDNhap" ToRole="HDNhap" />
+    <NavigationProperty Name="ThongTinHang" Relationship="Self.FK_CTHDNhap_ThongTinHang" FromRole="CTHDNhap" ToRole="ThongTinHang" />
+  </EntityType>
+  <EntityType Name="CTHDThanhToan">
+    <Key>
+      <PropertyRef Name="MaCTHDThanhToan" />
+    </Key>
+    <Property Name="MaCTHDThanhToan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SL" Type="Int32" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="ThanhTien" Type="Double" />
+    <NavigationProperty Name="HDThanhToan" Relationship="Self.FK_CTHDThanhToan_HDThanhToan" FromRole="CTHDThanhToan" ToRole="HDThanhToan" />
+    <NavigationProperty Name="ThongTinHang" Relationship="Self.FK_CTHDThanhToan_ThongTinHang" FromRole="CTHDThanhToan" ToRole="ThongTinHang" />
+  </EntityType>
+  <EntityType Name="HDNhap">
+    <Key>
+      <PropertyRef Name="MaHDNhap" />
+    </Key>
+    <Property Name="MaHDNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaThuongHieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TongTien" Type="Double" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CTHDNhaps" Relationship="Self.FK_CTHDNhap_HDNhap" FromRole="HDNhap" ToRole="CTHDNhap" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_HDNhap_NhanVien" FromRole="HDNhap" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="HDThanhToan">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CTHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTHDThanhToans" Relationship="Self.FK_CTHDThanhToan_HDThanhToan" FromRole="HDThanhToan" ToRole="CTHDThanhToan" />
+    <NavigationProperty Name="ThongTinKH" Relationship="Self.FK_HDThanhToan_ThongTinKH" FromRole="HDThanhToan" ToRole="ThongTinKH" />
+  </EntityType>
+  <EntityType Name="LoaiHang">
+    <Key>
+      <PropertyRef Name="MaLoaiHang" />
+    </Key>
+    <Property Name="MaLoaiHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenLoaiHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ThongTinHangs" Relationship="Self.FK_ThongTinHang_LoaiHang" FromRole="LoaiHang" ToRole="ThongTinHang" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="MaNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NamSinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="Int32" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HDNhaps" Relationship="Self.FK_HDNhap_NhanVien" FromRole="NhanVien" ToRole="HDNhap" />
+  </EntityType>
+  <EntityType Name="Size">
+    <Key>
+      <PropertyRef Name="MaSize" />
+    </Key>
+    <Property Name="MaSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ThongTinHangs" Relationship="Self.FK_ThongTinHang_Size" FromRole="Size" ToRole="ThongTinHang" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ThongTinHang">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoaiHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="MaThuongHieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Anh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <NavigationProperty Name="CTHDNhaps" Relationship="Self.FK_CTHDNhap_ThongTinHang" FromRole="ThongTinHang" ToRole="CTHDNhap" />
+    <NavigationProperty Name="CTHDThanhToans" Relationship="Self.FK_CTHDThanhToan_ThongTinHang" FromRole="ThongTinHang" ToRole="CTHDThanhToan" />
+    <NavigationProperty Name="LoaiHang" Relationship="Self.FK_ThongTinHang_LoaiHang" FromRole="ThongTinHang" ToRole="LoaiHang" />
+    <NavigationProperty Name="Size" Relationship="Self.FK_ThongTinHang_Size" FromRole="ThongTinHang" ToRole="Size" />
+    <NavigationProperty Name="ThuongHieu" Relationship="Self.FK_ThongTinHang_ThuongHieu" FromRole="ThongTinHang" ToRole="ThuongHieu" />
+  </EntityType>
+  <EntityType Name="ThongTinKH">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HDThanhToans" Relationship="Self.FK_HDThanhToan_ThongTinKH" FromRole="ThongTinKH" ToRole="HDThanhToan" />
+  </EntityType>
+  <EntityType Name="ThuongHieu">
+    <Key>
+      <PropertyRef Name="MaThuongHieu" />
+    </Key>
+    <Property Name="MaThuongHieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenThuongHieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ThongTinHangs" Relationship="Self.FK_ThongTinHang_ThuongHieu" FromRole="ThuongHieu" ToRole="ThongTinHang" />
+  </EntityType>
+  <Association Name="FK_CTHDNhap_HDNhap">
+    <End Role="HDNhap" Type="Self.HDNhap" Multiplicity="0..1" />
+    <End Role="CTHDNhap" Type="Self.CTHDNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDNhap">
+        <PropertyRef Name="MaHDNhap" />
+      </Principal>
+      <Dependent Role="CTHDNhap">
+        <PropertyRef Name="MaHDNhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDNhap_ThongTinHang">
+    <End Role="ThongTinHang" Type="Self.ThongTinHang" Multiplicity="0..1" />
+    <End Role="CTHDNhap" Type="Self.CTHDNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongTinHang">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="CTHDNhap">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDThanhToan_HDThanhToan">
+    <End Role="HDThanhToan" Type="Self.HDThanhToan" Multiplicity="0..1" />
+    <End Role="CTHDThanhToan" Type="Self.CTHDThanhToan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDThanhToan">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="CTHDThanhToan">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDThanhToan_ThongTinHang">
+    <End Role="ThongTinHang" Type="Self.ThongTinHang" Multiplicity="0..1" />
+    <End Role="CTHDThanhToan" Type="Self.CTHDThanhToan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongTinHang">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="CTHDThanhToan">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HDNhap_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="HDNhap" Type="Self.HDNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="HDNhap">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HDThanhToan_ThongTinKH">
+    <End Role="ThongTinKH" Type="Self.ThongTinKH" Multiplicity="0..1" />
+    <End Role="HDThanhToan" Type="Self.HDThanhToan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongTinKH">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="HDThanhToan">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThongTinHang_LoaiHang">
+    <End Role="LoaiHang" Type="Self.LoaiHang" Multiplicity="0..1" />
+    <End Role="ThongTinHang" Type="Self.ThongTinHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiHang">
+        <PropertyRef Name="MaLoaiHang" />
+      </Principal>
+      <Dependent Role="ThongTinHang">
+        <PropertyRef Name="MaLoaiHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThongTinHang_Size">
+    <End Role="Size" Type="Self.Size" Multiplicity="0..1" />
+    <End Role="ThongTinHang" Type="Self.ThongTinHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Size">
+        <PropertyRef Name="MaSize" />
+      </Principal>
+      <Dependent Role="ThongTinHang">
+        <PropertyRef Name="MaSize" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThongTinHang_ThuongHieu">
+    <End Role="ThuongHieu" Type="Self.ThuongHieu" Multiplicity="0..1" />
+    <End Role="ThongTinHang" Type="Self.ThongTinHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThuongHieu">
+        <PropertyRef Name="MaThuongHieu" />
+      </Principal>
+      <Dependent Role="ThongTinHang">
+        <PropertyRef Name="MaThuongHieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLQAoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Acounts" EntityType="Self.Acount" />
+    <EntitySet Name="CTHDNhaps" EntityType="Self.CTHDNhap" />
+    <EntitySet Name="CTHDThanhToans" EntityType="Self.CTHDThanhToan" />
+    <EntitySet Name="HDNhaps" EntityType="Self.HDNhap" />
+    <EntitySet Name="HDThanhToans" EntityType="Self.HDThanhToan" />
+    <EntitySet Name="LoaiHangs" EntityType="Self.LoaiHang" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="Sizes" EntityType="Self.Size" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="ThongTinHangs" EntityType="Self.ThongTinHang" />
+    <EntitySet Name="ThongTinKHs" EntityType="Self.ThongTinKH" />
+    <EntitySet Name="ThuongHieux" EntityType="Self.ThuongHieu" />
+    <AssociationSet Name="FK_CTHDNhap_HDNhap" Association="Self.FK_CTHDNhap_HDNhap">
+      <End Role="HDNhap" EntitySet="HDNhaps" />
+      <End Role="CTHDNhap" EntitySet="CTHDNhaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDNhap_ThongTinHang" Association="Self.FK_CTHDNhap_ThongTinHang">
+      <End Role="ThongTinHang" EntitySet="ThongTinHangs" />
+      <End Role="CTHDNhap" EntitySet="CTHDNhaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDThanhToan_HDThanhToan" Association="Self.FK_CTHDThanhToan_HDThanhToan">
+      <End Role="HDThanhToan" EntitySet="HDThanhToans" />
+      <End Role="CTHDThanhToan" EntitySet="CTHDThanhToans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDThanhToan_ThongTinHang" Association="Self.FK_CTHDThanhToan_ThongTinHang">
+      <End Role="ThongTinHang" EntitySet="ThongTinHangs" />
+      <End Role="CTHDThanhToan" EntitySet="CTHDThanhToans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HDNhap_NhanVien" Association="Self.FK_HDNhap_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="HDNhap" EntitySet="HDNhaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HDThanhToan_ThongTinKH" Association="Self.FK_HDThanhToan_ThongTinKH">
+      <End Role="ThongTinKH" EntitySet="ThongTinKHs" />
+      <End Role="HDThanhToan" EntitySet="HDThanhToans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThongTinHang_LoaiHang" Association="Self.FK_ThongTinHang_LoaiHang">
+      <End Role="LoaiHang" EntitySet="LoaiHangs" />
+      <End Role="ThongTinHang" EntitySet="ThongTinHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThongTinHang_Size" Association="Self.FK_ThongTinHang_Size">
+      <End Role="Size" EntitySet="Sizes" />
+      <End Role="ThongTinHang" EntitySet="ThongTinHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThongTinHang_ThuongHieu" Association="Self.FK_ThongTinHang_ThuongHieu">
+      <End Role="ThuongHieu" EntitySet="ThuongHieux" />
+      <End Role="ThongTinHang" EntitySet="ThongTinHangs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

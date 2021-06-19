@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8cb6f697dee6451fb4689ae5ff11c5bb" Name="Diagram1">
+        <EntityTypeShape EntityType="QLQAoModel.Acount" Width="1.5" PointX="5.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.CTHDNhap" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.CTHDThanhToan" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.HDNhap" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.HDThanhToan" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.LoaiHang" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.NhanVien" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.Size" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.sysdiagram" Width="1.5" PointX="7.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.ThongTinHang" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.ThongTinKH" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLQAoModel.ThuongHieu" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="QLQAoModel.FK_CTHDNhap_HDNhap" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQAoModel.FK_CTHDNhap_ThongTinHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQAoModel.FK_CTHDThanhToan_HDThanhToan" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQAoModel.FK_CTHDThanhToan_ThongTinHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQAoModel.FK_HDNhap_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQAoModel.FK_HDThanhToan_ThongTinKH" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQAoModel.FK_ThongTinHang_LoaiHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQAoModel.FK_ThongTinHang_Size" ManuallyRouted="false" />
+        <AssociationConnector Association="QLQAoModel.FK_ThongTinHang_ThuongHieu" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

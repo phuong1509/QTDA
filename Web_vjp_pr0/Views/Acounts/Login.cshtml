@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Web_vjp_pr0.Models.Acount>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        .body-section {
+            display: flex;
+        }
+        .left-body{
+            width: 40%;
+            background-color:black;
+            color:white;
+        }
+        .login-form{
+            width:100%!important;
+        }
+        .right-body{
+            width:80%;
+        }
+        .login-section {
+            padding-left: 80px !important;
+            padding-top: 80px !important;
+            width: 80% !important;
+        }
+    </style>
+    <link rel="stylesheet" href="~/Theme/style.css">
+    <link rel="stylesheet" href="~/Theme/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="body-section">
+        <div class="row justify-content-md-center left-body">
+            <div class="col-md-4 login-section">
+                <div class="login-form">
+
+                    <h1 class="card-header">
+                        <b>ĐĂNG NHẬP</b>
+                    </h1>
+                    <p>
+                        Nếu bạn đã có tài khoản đăng nhập tại đây
+                    </p>
+                    <div class="card-body">
+                        @using (Html.BeginForm("Login", "Acounts", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-group">
+                                <p><b>Tài Khoản</b></p>
+                                <input class="form-control" placeholder="Tài Khoản" type="text" value="" name="taiKhoan" />
+                            </div>
+                            <div class="form-group">
+                                <p><b>Mật Khẩu</b></p>
+                                <input class="form-control" placeholder="Mật Khẩu" type="password" value="" name="matKhau" />
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-primary" value="Login" />
+                                <p>@ViewBag.error</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-body">
+            <img src="~/Anh/formdangnhap.png" style="width:100%" />
+        </div>
+    </div>
+</body>
+</html>

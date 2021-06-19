@@ -1,0 +1,90 @@
+﻿@model PagedList.IPagedList<Web_vjp_pr0.Models.ThongTinHang>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Edit";
+}
+<div style="display:flex; justify-content: space-between">
+    <h2>Thông Tin Hàng</h2>
+    <form>
+        <input type="text" spaceholder="Nhập từ khóa" name="searchString" value="@ViewBag.CurrentFilter" />
+        <input type="submit" value="Tìm kiếm" />
+    </form>
+</div>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Mã Hàng", "Index", new { sortOrder = ViewBag.codeSort, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Tên Hàng", "Index", new { sortOrder = ViewBag.nameSort, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+        <th>
+            Ảnh
+        </th>
+
+        <th>
+            Tên Loại Hàng
+        </th>
+        <th>
+            Mã Size
+        </th>
+        <th>
+            Tên Thương Hiệu
+        </th>
+        <th>
+            Số Lượng
+        </th>
+        <th>Thao Tác</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaHang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenHang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DonGia)
+    </td>
+    <td>
+        <img src="~/Anh/@item.Anh" width="60px" />
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.LoaiHang.TenLoaiHang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Size.MaSize)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ThuongHieu.TenThuongHieu)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoLuong)
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "Edit", new { id = item.MaHang }) |
+        @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaHang }) |
+        @Html.ActionLink("Xóa", "Delete", new { id = item.MaHang })
+    </td>
+</tr>
+    }
+
+</table>
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

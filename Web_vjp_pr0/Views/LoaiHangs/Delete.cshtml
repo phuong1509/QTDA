@@ -1,0 +1,40 @@
+﻿@model Web_vjp_pr0.Models.LoaiHang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa Loại Hàng</h2>
+
+
+<div>
+    <h4>LoaiHang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLoaiHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoaiHang)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoaiHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoaiHang)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại danh sách", "Index")
+        </div>
+    }
+</div>

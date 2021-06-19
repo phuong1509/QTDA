@@ -1,0 +1,27 @@
+﻿@model Web_vjp_pr0.Models.LoaiHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi Tiết Loại Hàng</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã Loại Hàng
+        </dt>
+
+        <dd>
+            Tên Loại Hàng
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaLoaiHang }) |
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</p>

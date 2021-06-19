@@ -1,0 +1,87 @@
+﻿@model Web_vjp_pr0.Models.ThongTinHang
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xóa Thông Tin Hàng</h2>
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenHang)
+        </dd>
+
+        <dt>
+            Đơn Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            Ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anh)
+        </dd>
+
+        <dt>
+            Mã Kho Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kho.MaHang)
+        </dd>
+
+        <dt>
+            Tên Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiHang.TenLoaiHang)
+        </dd>
+
+        <dt>
+            Mã Size
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size.MaSize)
+        </dd>
+
+        <dt>
+            Tên Thương Hiệu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuongHieu.TenThuongHieu)
+        </dd>
+
+        <dt>
+            Số Lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Lại Danh Sách", "Index")
+        </div>
+    }
+</div>

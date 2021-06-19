@@ -1,0 +1,109 @@
+﻿@model Web_vjp_pr0.Models.ThongTinKH
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout_KH.cshtml";
+}
+<nav class="container">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-login" data-bs-toggle="tab" data-bs-target="#nav-login" type="button" role="tab" aria-controls="nav-login" aria-selected="true">Login</button>
+        <button class="nav-link" id="nav-register-tab" data-bs-toggle="tab" data-bs-target="#nav-register" type="button" role="tab" aria-controls="nav-register" aria-selected="false">Register</button>
+    </div>
+</nav>
+<div class="tab-content container" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <h2>Đăng Kí</h2>
+        <form method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>ThongTinKH</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-floating mb-3 form-group">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="abc">
+                        <label for="Email">Email</label>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3 form-group">
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="Pass" name="Pass" placeholder="abc">
+                        <label for="Pass">Pasword</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Login" class="btn btn-outline-dark" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
+        <h2>Đăng Kí</h2>
+        <form method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>ThongTinKH</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-floating mb-3 form-group">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="MaKH" name="MaKH" placeholder="abc">
+                        <label for="Makh">MaKH</label>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3 form-group">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="TenKH" name="TenKH" placeholder="abc">
+                        <label for="TenKH">TenKH</label>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3 form-group">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="DiaChi" name="DiaChi" placeholder="abc">
+                        <label for="DiaChi">DiaChi</label>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3 form-group">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="SDT" name="SDT" placeholder="abc">
+                        <label for="SDT">SDT</label>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3 form-group">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="abc">
+                        <label for="Email">Email</label>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3 form-group">
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="MatKhau" name="MatKhau" placeholder="abc">
+                        <label for="MatKhau">MatKhau</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-outline-dark" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

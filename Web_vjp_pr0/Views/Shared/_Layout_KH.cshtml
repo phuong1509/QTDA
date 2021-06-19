@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title>_Layout_KH</title>
+    <!--Bootstrap-->
+    <link href="~/bootstrap-5.0.1-dist/css/bootstrap-reboot.css" rel="stylesheet" />
+    <link href="~/bootstrap-5.0.1-dist/css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/bootstrap-5.0.1-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/bootstrap-5.0.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/bootstrap-5.0.1-dist/js/bootstrap.bundle.js"></script>
+    <script src="~/bootstrap-5.0.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrap-5.0.1-dist/js/bootstrap.esm.js"></script>
+    <script src="~/bootstrap-5.0.1-dist/js/bootstrap.esm.min.js"></script>
+    <script src="~/bootstrap-5.0.1-dist/js/bootstrap.js"></script>
+    <script src="~/bootstrap-5.0.1-dist/js/bootstrap.min.js"></script>
+    <link href="~/theme/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/3de6233568.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div>
+        <div style="position:fixed; z-index:100">
+            <nav class="navbar navbar-dark" style="background-color: #0b0b0b; padding:10px 5%">
+                <div class="container-fluid">
+                    <img src="~/theme/images/logo.jpg" width="10%" />
+                    <img src="~/theme/images/banner.png" width="22%" />
+                    <div class="navbar me-5" style="width:18%">
+                        <a href="https://www.facebook.com/badhabitsstore"><i class="fab fa-facebook-f" style="color:white; font-size:24px"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram" style="color: white; font-size: 24px"></i></a>
+                        <i class="far fa-user-circle" style="color: white; font-size: 24px"></i>
+                        <a data-bs-toggle="offcanvas" href="#offcanvasSearch" role="button" aria-controls="offcanvasExample">
+                            <i class="fas fa-search" style="color: white; font-size: 24px"></i>
+                        </a>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSearch" aria-labelledby="offcanvasExampleLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Tìm kiếm theo tên sản phẩm</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="searchInput" placeholder="abc">
+                                    <label for="searchInput">Tìm kiếm</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div style="color: white; font-size: 24px">
+                            <i class="fas fa-shopping-cart"></i>
+                            (<span style="color:red">0</span>)
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid justify-content-center">
+                    <a class="navbar-brand" style="font-size:15px">COLLECTION</a>
+                    <a class="navbar-brand" style="font-size:15px">T-SHIRT</a>
+                    <a class="navbar-brand" style="font-size:15px">HOODIE/SWEATER</a>
+                    <a class="navbar-brand" style="font-size:15px">ACCESSORIES</a>
+                    <a class="navbar-brand" style="font-size:15px">SHORT/PAINT</a>
+                    <a class="navbar-brand" style="font-size:15px">JACKET</a>
+                    <a class="navbar-brand" style="font-size:15px">BAD RABIT</a>
+                </div>
+            </nav>
+        </div>
+        <div style="padding: 180px 25px 80px 25px ">
+            @RenderBody()
+        </div>
+        <nav class="navbar navbar-light bg-light" style="background-color: #f3f3f3; margin-bottom:50px">
+            <div class="container justify-content-around">
+                <div>
+                    <div class="input-group">
+                        <span class="input-group-text gap-2" id="basic-addon1">
+                            <i class="fas fa-envelope-open-text fa-2x"></i>
+                            <span>Đăng kí nhận tin</span>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Nhập gmail của bạn" aria-label="Username" aria-describedby="basic-addon1 button-addon2">
+                        <button class="btn btn-outline-secondary btn-outline-dark" type="button" id="button-addon2">Đăng kí</button>
+                    </div>
+                </div>
+                <div>
+                    <i class="fas fa-phone-square-alt fa-2x"></i>
+                    <span style="padding:0 10px">Hỗ trợ / Mua hàng:</span>
+                    <a href="tel:0907 799 384 - 0902 638 020" style="color:red">
+                        0907 799 384 - 0902 638 020
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div style="padding:0 20px 50px 20px">
+            <div class="row">
+                <div class="col-3">
+                    <h4>Thông tin liên hệ</h4>
+                    <div class="row">
+                        <div class="col-1">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="col-11">
+                            <span>Hệ thống cửa hàng:</span><br />
+                            <span>Store 1: 93 Rạch Bùng Binh,Phường 9, Quận 3</span><br />
+                            <span>Store 2: 117 Trần Đình Xu, phường Nguyễn Cư Trinh, Quận 1</span><br />
+                            <span>Store 3: 350 Điện Biên Phủ, phường 17, Quận Bình Thạnh</span><br />
+                            <span>Store 4: Vincom Bà Triêu tầng 7, Booth 28, Hà Nội</span><br />
+                            <span>Store 5: 444 Đường 30/4, thành phố Tây Ninh</span><br />
+                            <span>Store 6: 26 Lý Tự Trọng quận 1</span><br />
+                            <span>Store 7: Central market, Lê Lai, quận 1</span><br />
+                            <span>Store 8: 136 Nguyễn Hồng Đào, phường 9 quận Tân Bình</span><br />
+                            <span>Store 9: 57 Nguyễn Gia Trí ( D2 cũ) phường 25, quận Bình Thạnh</span><br />
+                            <br /><span>Văn phòng đại diện: 152a Trần Quang Khải, quận 1</span>
+                        </div>
+                        <div class="col-1">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="col-11">
+                            0907 799 384 - 0902 638 020
+                        </div>
+                        <div class="col-1">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="col-11">
+                            badhabits95.store@gmail.com
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <h4>FOLLOW FANPAGE</h4>
+                    <div class="col-12">
+                        <div class="card bg-dark text-white">
+                            <img src="~/theme/images/facebook.jpg" class="card-img"/>
+                            <div class="card-img-overlay">
+                                <div style="display:flex">
+                                    <img src="~/theme/images/logo.jpg" width="80px" class="img-thumbnail" />
+                                    <div>
+                                        <a href="https://www.facebook.com/badhabitsstore/" style="font-size:20px; color:white">Bad Habit</a>
+                                        <p>539,768 likes</p>
+                                    </div>
+                                </div>
+                                <br />
+                                <a href="https://www.facebook.com/v2.0/plugins/error/confirm/page?iframe_referer=https%3A%2F%2Fbadhabitsstore.vn%2F&kid_directed_site=false&secure=true&plugin=page&return_params=%7B%22adapt_container_width%22%3A%22true%22%2C%22app_id%22%3A%22263266547210244%22%2C%22channel%22%3A%22https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df6def7a8903ac4%26domain%3Dbadhabitsstore.vn%26origin%3Dhttps%253A%252F%252Fbadhabitsstore.vn%252Ff30677002741054%26relation%3Dparent.parent%22%2C%22container_width%22%3A%22307%22%2C%22height%22%3A%22300%22%2C%22hide_cover%22%3A%22false%22%2C%22href%22%3A%22https%3A%2F%2Fwww.facebook.com%2Fbadhabitsstore%2F%22%2C%22locale%22%3A%22en_US%22%2C%22sdk%22%3A%22joey%22%2C%22show_facepile%22%3A%22true%22%2C%22show_posts%22%3A%22false%22%2C%22small_header%22%3A%22false%22%2C%22_rdc%22%3A%221%22%2C%22_rdr%22%3Anull%2C%22ret%22%3A%22sentry%22%2C%22act%22%3Anull%7D" class="btn btn-outline-light" tabindex="-1" role="button" aria-disabled="true">Like Page</a>
+                                <a href="https://www.messenger.com/t/1366556770077871/?messaging_source=source%3Apages%3Apage_plugin_message" class="btn btn-outline-light" tabindex="-1" role="button" aria-disabled="true">Sent Message</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <h4>FOLLOW INSTA</h4>
+                    <a href="https://www.instagram.com/badhabitsstore.vn/" style="color:black">BAD HABITS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-light bg-light justify-content-center" style="padding:20px 0 30px 0">
+        <p>Copyright © 2021 Bad Habits store. Powered by Haravan</p>
+    </nav>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    
+<script>
+    
+    $("#searchInput").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: '@Url.Action("GetSearchValue","ThongTinHangs")',
+                dataType: "json",
+                data: { search: $("#searchInput").val() },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return { label: item.TenHang, value: item.TenHang, label: item.TenHang, value: item.TenHang };
+                    }));
+                },
+                error: function (xhr, status, error) {
+                    alert("error")
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
